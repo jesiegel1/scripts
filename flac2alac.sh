@@ -10,8 +10,7 @@ function flac2alac_dir {
     local newpath="$outpath/$outname/$dirname"
     mkdir -p "$newpath"
     for f in "$inpath"/*.flac; do
-        filename=$(basename "$f")
-
+        local filename=$(basename "$f")
         ffmpeg -i "$f" -acodec alac "$newpath/${filename%.flac}.m4a"
     done
   fi
